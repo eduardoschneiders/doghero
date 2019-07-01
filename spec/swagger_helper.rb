@@ -19,6 +19,14 @@ RSpec.configure do |config|
         title: 'API V1',
         version: 'v1'
       },
+      definitions: {
+        client: {
+          type: :object,
+          properties: {
+            name: { type: :string, example: 'Eduardo' },
+          }
+        }
+      },
       paths: {}
     }
   }

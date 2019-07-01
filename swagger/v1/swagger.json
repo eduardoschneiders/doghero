@@ -4,6 +4,17 @@
     "title": "API V1",
     "version": "v1"
   },
+  "definitions": {
+    "client": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "example": "Eduardo"
+        }
+      }
+    }
+  },
   "paths": {
     "/clients": {
       "get": {
@@ -14,20 +25,20 @@
                 {
                   "id": 4,
                   "name": "John Doe 4",
-                  "created_at": "2019-07-01T19:15:37.363Z",
-                  "updated_at": "2019-07-01T19:15:37.363Z"
+                  "created_at": "2019-07-01T20:32:25.677Z",
+                  "updated_at": "2019-07-01T20:32:25.677Z"
                 },
                 {
                   "id": 5,
                   "name": "John Doe 5",
-                  "created_at": "2019-07-01T19:15:37.364Z",
-                  "updated_at": "2019-07-01T19:15:37.364Z"
+                  "created_at": "2019-07-01T20:32:25.678Z",
+                  "updated_at": "2019-07-01T20:32:25.678Z"
                 },
                 {
                   "id": 6,
                   "name": "John Doe 6",
-                  "created_at": "2019-07-01T19:15:37.366Z",
-                  "updated_at": "2019-07-01T19:15:37.366Z"
+                  "created_at": "2019-07-01T20:32:25.680Z",
+                  "updated_at": "2019-07-01T20:32:25.680Z"
                 }
               ]
             },
@@ -38,6 +49,166 @@
           "clients"
         ],
         "summary": "Get clients",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ]
+      },
+      "post": {
+        "responses": {
+          "201": {
+            "examples": {
+              "application/json": {
+                "id": 7,
+                "name": "Eduardo",
+                "created_at": "2019-07-01T20:32:25.691Z",
+                "updated_at": "2019-07-01T20:32:25.691Z"
+              }
+            },
+            "description": "Client created"
+          }
+        },
+        "parameters": [
+          {
+            "name": "client",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/client"
+            }
+          }
+        ],
+        "tags": [
+          "clients"
+        ],
+        "summary": "Create a new client",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ]
+      }
+    },
+    "/clients/{id}": {
+      "get": {
+        "responses": {
+          "200": {
+            "examples": {
+              "application/json": {
+                "id": 8,
+                "name": "John Doe 7",
+                "created_at": "2019-07-01T20:32:25.697Z",
+                "updated_at": "2019-07-01T20:32:25.697Z"
+              }
+            },
+            "description": "Return the selected Client"
+          },
+          "404": {
+            "examples": {
+              "text/plain": " "
+            },
+            "description": "Client not found"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "integer",
+            "required": true,
+            "description": "client ID"
+          }
+        ],
+        "tags": [
+          "clients"
+        ],
+        "summary": "Get Client",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ]
+      },
+      "put": {
+        "responses": {
+          "200": {
+            "examples": {
+              "application/json": {
+                "id": 9,
+                "name": "New Name",
+                "created_at": "2019-07-01T20:32:25.718Z",
+                "updated_at": "2019-07-01T20:32:25.722Z"
+              }
+            },
+            "description": "Client updated"
+          },
+          "404": {
+            "examples": {
+              "text/plain": " "
+            },
+            "description": "Client not found"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "integer",
+            "required": true,
+            "description": "client ID"
+          },
+          {
+            "name": "client",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/client"
+            }
+          }
+        ],
+        "tags": [
+          "clients"
+        ],
+        "summary": "Update Client",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ]
+      },
+      "delete": {
+        "responses": {
+          "204": {
+            "examples": {
+              "": ""
+            },
+            "description": "Client deleted"
+          },
+          "404": {
+            "examples": {
+              "text/plain": " "
+            },
+            "description": "Client not found"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "integer",
+            "required": true,
+            "description": "client ID"
+          }
+        ],
+        "tags": [
+          "clients"
+        ],
+        "summary": "Delete Client",
         "consumes": [
           "application/json"
         ],

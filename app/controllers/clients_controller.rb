@@ -33,18 +33,19 @@ class ClientsController < ApplicationController
     end
   end
 
-  # DELETE /clients/1
   def destroy
     @client.destroy
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_client
-      @client = Client.find(params[:id])
+      begin
+        @client = Client.find(params[:id])
+      rescue ActiveRecord::RecordNotFound
+        render :nothing, status: :not_found unless @client
+      end
     end
 
-    # Only allow a trusted parameter "white list" through.
     def client_params
       params.require(:client).permit(:name)
     end
