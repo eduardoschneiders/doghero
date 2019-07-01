@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe ClientsController, type: :controller do
+RSpec.describe Api::V1::ClientsController, type: :controller do
 
   # This should return the minimal set of attributes required to create a valid
   # Client. As you add validations to Client, be sure to
@@ -47,7 +47,7 @@ RSpec.describe ClientsController, type: :controller do
         post :create, params: {client: valid_attributes}, session: valid_session
         expect(response).to have_http_status(:created)
         expect(response.content_type).to eq('application/json')
-        expect(response.location).to eq(client_url(Client.last))
+        expect(response.location).to eq(api_v1_client_url(Client.last))
       end
     end
 

@@ -1,4 +1,4 @@
-class ClientsController < ApplicationController
+class Api::V1::ClientsController < ApplicationController
   before_action :set_client, only: [:show, :update, :destroy]
 
   # GET /clients
@@ -18,7 +18,7 @@ class ClientsController < ApplicationController
     @client = Client.new(client_params)
 
     if @client.save
-      render json: @client, status: :created, location: @client
+      render json: @client, status: :created, location: api_v1_client_url(@client)
     else
       render json: @client.errors, status: :unprocessable_entity
     end

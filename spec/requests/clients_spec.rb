@@ -1,7 +1,7 @@
 require 'swagger_helper'
 
 RSpec.describe 'Clients', type: :request, capture_examples: true do
-  path '/clients' do
+  path '/api/v1/clients' do
     get(summary: 'Get clients') do
       consumes 'application/json'
       produces 'application/json'
@@ -45,7 +45,7 @@ RSpec.describe 'Clients', type: :request, capture_examples: true do
     end
   end
 
-  path '/clients/{id}' do
+  path '/api/v1/clients/{id}' do
     get(summary: 'Get Client') do
       consumes 'application/json'
       produces 'application/json'
