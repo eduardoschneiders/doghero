@@ -5,99 +5,45 @@
     "version": "v1"
   },
   "paths": {
-    "/api/v1/articles": {
-      "post": {
-        "summary": "Creates a article",
+    "/clients": {
+      "get": {
+        "responses": {
+          "200": {
+            "examples": {
+              "application/json": [
+                {
+                  "id": 4,
+                  "name": "John Doe 4",
+                  "created_at": "2019-07-01T19:15:37.363Z",
+                  "updated_at": "2019-07-01T19:15:37.363Z"
+                },
+                {
+                  "id": 5,
+                  "name": "John Doe 5",
+                  "created_at": "2019-07-01T19:15:37.364Z",
+                  "updated_at": "2019-07-01T19:15:37.364Z"
+                },
+                {
+                  "id": 6,
+                  "name": "John Doe 6",
+                  "created_at": "2019-07-01T19:15:37.366Z",
+                  "updated_at": "2019-07-01T19:15:37.366Z"
+                }
+              ]
+            },
+            "description": "Return all the available clients"
+          }
+        },
         "tags": [
-          "articles"
+          "clients"
         ],
+        "summary": "Get clients",
         "consumes": [
           "application/json"
         ],
-        "parameters": [
-          {
-            "name": "article",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "article": {
-                  "name": {
-                    "type": "string"
-                  },
-                  "photo_url": {
-                    "type": "string"
-                  },
-                  "status": {
-                    "type": "string"
-                  }
-                }
-              },
-              "required": [
-                "name",
-                "status"
-              ]
-            }
-          }
-        ],
-        "responses": {
-          "201": {
-            "description": "article created"
-          },
-          "422": {
-            "description": "invalid request"
-          }
-        }
-      }
-    },
-    "/api/v1/articles/{id}": {
-      "get": {
-        "summary": "Retrieves a article",
-        "tags": [
-          "articles"
-        ],
         "produces": [
-          "application/json",
-          "application/xml"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "type": "string",
-            "required": true
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "name found",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "id": {
-                  "type": "integer"
-                },
-                "name": {
-                  "type": "string"
-                },
-                "photo_url": {
-                  "type": "string"
-                },
-                "status": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "id",
-                "name",
-                "status"
-              ]
-            }
-          },
-          "404": {
-            "description": "article not found"
-          }
-        }
+          "application/json"
+        ]
       }
     }
   }

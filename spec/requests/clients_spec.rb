@@ -1,10 +1,24 @@
-require 'rails_helper'
+require 'swagger_helper'
 
-RSpec.describe "Clients", type: :request do
-  describe "GET /clients" do
-    it "works! (now write some real specs)" do
-      get clients_path
-      expect(response).to have_http_status(200)
+RSpec.describe 'Clients', type: :request, capture_examples: true do
+  path '/clients' do
+    get(summary: 'Get clients') do
+      consumes 'application/json'
+      produces 'application/json'
+      tags :clients
+
+      let!(:clients) do
+        3.times do
+          create(:client)
+        end
+      end
+
+      response(200, description: 'Return all the available clients') do
+        it 'Return 3 clients' do
+          body = JSON(response.body)
+          expect(body.count).to eq(3)
+        end
+      end
     end
   end
 end
