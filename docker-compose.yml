@@ -1,0 +1,35 @@
+version: "3.7"
+
+services:
+  postgres:
+    image: postgres:latest
+    container_name: postgres-dogHero
+    ports:
+      - "5432:5432"
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=postgres
+  app:
+    build: .
+    container_name: app-dogHero
+    command: ./scripts/start
+    tty: true
+    stdin_open: true
+    volumes:
+      - .:/app
+      - box:/box
+    ports:
+      - "3000:3000"
+    depends_on:
+      - postgres
+      - box
+
+  box:
+    image: busybox
+    volumes:
+      - box:/box
+
+volumes:
+  pg_data:
+  box:
