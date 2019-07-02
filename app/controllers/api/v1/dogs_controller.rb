@@ -44,7 +44,7 @@ class Api::V1::DogsController < ApplicationController
       begin
         @dog = @client.dogs.find(params[:id])
       rescue ActiveRecord::RecordNotFound
-        return render :nothing, status: :not_found
+        render :nothing, status: :not_found
       end
     end
 
@@ -52,7 +52,7 @@ class Api::V1::DogsController < ApplicationController
       begin
         @client = Client.find(params[:client_id])
       rescue ActiveRecord::RecordNotFound
-        return render :nothing, status: :not_found
+        render :nothing, status: :not_found
       end
     end
 

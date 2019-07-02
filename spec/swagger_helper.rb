@@ -31,6 +31,12 @@ RSpec.configure do |config|
           properties: {
             name: { type: :string, example: 'Rufuss' },
           }
+        },
+        caregiver: {
+          type: :object,
+          properties: {
+            name: { type: :string, example: 'Matheus' },
+          }
         }
       },
       paths: {}

@@ -42,7 +42,7 @@ class Api::V1::ClientsController < ApplicationController
       begin
         @client = Client.find(params[:id])
       rescue ActiveRecord::RecordNotFound
-        render :nothing, status: :not_found unless @client
+        render :nothing, status: :not_found
       end
     end
 
