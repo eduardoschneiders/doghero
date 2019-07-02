@@ -8,6 +8,7 @@ Rails.application.routes.draw do
         resources :dogs
       end
       resources :caregivers
+      resources :walkings
     end
   end
 end
