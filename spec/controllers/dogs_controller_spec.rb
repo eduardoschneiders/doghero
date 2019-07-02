@@ -28,8 +28,9 @@ RSpec.describe Api::V1::DogsController, type: :controller do
   # This should return the minimal set of attributes required to create a valid
   # Dog. As you add validations to Dog, be sure to
   # adjust the attributes here as well.
+  let(:client) { create(:client) }
   let(:valid_attributes) {
-    build(:dog).attributes
+    build(:dog, client: client).attributes
   }
 
   let(:invalid_attributes) {
@@ -44,7 +45,8 @@ RSpec.describe Api::V1::DogsController, type: :controller do
   describe "GET #index" do
     it "returns a success response" do
       dog = Dog.create! valid_attributes
-      get :index, params: {}, session: valid_session
+
+      get :index, params: { client_id: client.to_param }, session: valid_session
       expect(response).to be_successful
     end
   end
@@ -52,7 +54,7 @@ RSpec.describe Api::V1::DogsController, type: :controller do
   describe "GET #show" do
     it "returns a success response" do
       dog = Dog.create! valid_attributes
-      get :show, params: {id: dog.to_param}, session: valid_session
+      get :show, params: { client_id: client.to_param, id: dog.to_param}, session: valid_session
       expect(response).to be_successful
     end
   end
@@ -61,23 +63,23 @@ RSpec.describe Api::V1::DogsController, type: :controller do
     context "with valid params" do
       it "creates a new Dog" do
         expect {
-          post :create, params: {dog: valid_attributes}, session: valid_session
+          post :create, params: { client_id: client.to_param, dog: valid_attributes}, session: valid_session
         }.to change(Dog, :count).by(1)
       end
 
       it "renders a JSON response with the new dog" do
 
-        post :create, params: {dog: valid_attributes}, session: valid_session
+        post :create, params: { client_id: client.to_param,  dog: valid_attributes}, session: valid_session
         expect(response).to have_http_status(:created)
         expect(response.content_type).to eq('application/json')
-        expect(response.location).to eq(api_v1_dog_url(Dog.last))
+        expect(response.location).to eq(api_v1_client_dog_url(client, Dog.last))
       end
     end
 
     context "with invalid params" do
       it "renders a JSON response with errors for the new dog" do
 
-        post :create, params: { dog: invalid_attributes}, session: valid_session
+        post :create, params: { client_id: client.to_param, dog: invalid_attributes}, session: valid_session
         expect(response).to have_http_status(:unprocessable_entity)
         expect(response.content_type).to eq('application/json')
       end
@@ -92,14 +94,14 @@ RSpec.describe Api::V1::DogsController, type: :controller do
 
       it "updates the requested dog" do
         dog = Dog.create! valid_attributes
-        put :update, params: {id: dog.to_param, dog: new_attributes}, session: valid_session
+        put :update, params: {client_id: client.to_param, id: dog.to_param, dog: new_attributes}, session: valid_session
         dog.reload
       end
 
       it "renders a JSON response with the dog" do
         dog = Dog.create! valid_attributes
 
-        put :update, params: {id: dog.to_param, dog: valid_attributes}, session: valid_session
+        put :update, params: {client_id: client.to_param, id: dog.to_param, dog: valid_attributes}, session: valid_session
         expect(response).to have_http_status(:ok)
         expect(response.content_type).to eq('application/json')
       end
@@ -109,7 +111,7 @@ RSpec.describe Api::V1::DogsController, type: :controller do
       it "renders a JSON response with errors for the dog" do
         dog = Dog.create! valid_attributes
 
-        put :update, params: {id: dog.to_param, dog: invalid_attributes}, session: valid_session
+        put :update, params: {client_id: client.to_param, id: dog.to_param, dog: invalid_attributes}, session: valid_session
         expect(response).to have_http_status(:unprocessable_entity)
         expect(response.content_type).to eq('application/json')
       end
@@ -120,7 +122,7 @@ RSpec.describe Api::V1::DogsController, type: :controller do
     it "destroys the requested dog" do
       dog = Dog.create! valid_attributes
       expect {
-        delete :destroy, params: {id: dog.to_param}, session: valid_session
+        delete :destroy, params: {client_id: client.to_param, id: dog.to_param}, session: valid_session
       }.to change(Dog, :count).by(-1)
     end
   end

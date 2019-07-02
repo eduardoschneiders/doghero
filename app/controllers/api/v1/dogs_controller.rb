@@ -1,9 +1,10 @@
 class Api::V1::DogsController < ApplicationController
+  before_action :set_client
   before_action :set_dog, only: [:show, :update, :destroy]
 
   # GET /dogs
   def index
-    @dogs = Dog.all
+    @dogs = @client.dogs.all
 
     render json: @dogs
   end
@@ -15,10 +16,10 @@ class Api::V1::DogsController < ApplicationController
 
   # POST /dogs
   def create
-    @dog = Dog.new(dog_params)
+    @dog = @client.dogs.build(dog_params)
 
     if @dog.save
-      render json: @dog, status: :created, location: api_v1_dog_url(@dog)
+      render json: @dog, status: :created, location: api_v1_client_dog_url(@client, @dog)
     else
       render json: @dog.errors, status: :unprocessable_entity
     end
@@ -40,7 +41,19 @@ class Api::V1::DogsController < ApplicationController
 
   private
     def set_dog
-      @dog = Dog.find(params[:id])
+      begin
+        @dog = @client.dogs.find(params[:id])
+      rescue ActiveRecord::RecordNotFound
+        return render :nothing, status: :not_found
+      end
+    end
+
+    def set_client
+      begin
+        @client = Client.find(params[:client_id])
+      rescue ActiveRecord::RecordNotFound
+        return render :nothing, status: :not_found
+      end
     end
 
     def dog_params

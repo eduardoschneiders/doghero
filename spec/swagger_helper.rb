@@ -25,6 +25,12 @@ RSpec.configure do |config|
           properties: {
             name: { type: :string, example: 'Eduardo' },
           }
+        },
+        dog: {
+          type: :object,
+          properties: {
+            name: { type: :string, example: 'Rufuss' },
+          }
         }
       },
       paths: {}

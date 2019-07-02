@@ -4,6 +4,6 @@ FactoryBot.define do
       "My Dog #{n}"
     end
 
-    client { create(:client) }
+    # client { create(:client) }
   end
 end

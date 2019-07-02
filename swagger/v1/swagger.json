@@ -13,10 +13,19 @@
           "example": "Eduardo"
         }
       }
+    },
+    "dog": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "example": "Rufuss"
+        }
+      }
     }
   },
   "paths": {
-    "/clients": {
+    "/api/v1/clients": {
       "get": {
         "responses": {
           "200": {
@@ -25,20 +34,20 @@
                 {
                   "id": 4,
                   "name": "John Doe 4",
-                  "created_at": "2019-07-01T20:32:25.677Z",
-                  "updated_at": "2019-07-01T20:32:25.677Z"
+                  "created_at": "2019-07-02T02:35:27.374Z",
+                  "updated_at": "2019-07-02T02:35:27.374Z"
                 },
                 {
                   "id": 5,
                   "name": "John Doe 5",
-                  "created_at": "2019-07-01T20:32:25.678Z",
-                  "updated_at": "2019-07-01T20:32:25.678Z"
+                  "created_at": "2019-07-02T02:35:27.376Z",
+                  "updated_at": "2019-07-02T02:35:27.376Z"
                 },
                 {
                   "id": 6,
                   "name": "John Doe 6",
-                  "created_at": "2019-07-01T20:32:25.680Z",
-                  "updated_at": "2019-07-01T20:32:25.680Z"
+                  "created_at": "2019-07-02T02:35:27.378Z",
+                  "updated_at": "2019-07-02T02:35:27.378Z"
                 }
               ]
             },
@@ -63,8 +72,8 @@
               "application/json": {
                 "id": 7,
                 "name": "Eduardo",
-                "created_at": "2019-07-01T20:32:25.691Z",
-                "updated_at": "2019-07-01T20:32:25.691Z"
+                "created_at": "2019-07-02T02:35:27.388Z",
+                "updated_at": "2019-07-02T02:35:27.388Z"
               }
             },
             "description": "Client created"
@@ -92,7 +101,7 @@
         ]
       }
     },
-    "/clients/{id}": {
+    "/api/v1/clients/{id}": {
       "get": {
         "responses": {
           "200": {
@@ -100,8 +109,8 @@
               "application/json": {
                 "id": 8,
                 "name": "John Doe 7",
-                "created_at": "2019-07-01T20:32:25.697Z",
-                "updated_at": "2019-07-01T20:32:25.697Z"
+                "created_at": "2019-07-02T02:35:27.396Z",
+                "updated_at": "2019-07-02T02:35:27.396Z"
               }
             },
             "description": "Return the selected Client"
@@ -140,8 +149,8 @@
               "application/json": {
                 "id": 9,
                 "name": "New Name",
-                "created_at": "2019-07-01T20:32:25.718Z",
-                "updated_at": "2019-07-01T20:32:25.722Z"
+                "created_at": "2019-07-02T02:35:27.421Z",
+                "updated_at": "2019-07-02T02:35:27.424Z"
               }
             },
             "description": "Client updated"
@@ -209,6 +218,225 @@
           "clients"
         ],
         "summary": "Delete Client",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ]
+      }
+    },
+    "/api/v1/clients/{client_id}/dogs": {
+      "parameters": [
+        {
+          "name": "client_id",
+          "in": "path",
+          "type": "integer",
+          "required": true,
+          "description": "client ID"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "examples": {
+              "application/json": [
+                {
+                  "id": 4,
+                  "name": "My Dog 4",
+                  "client_id": 12,
+                  "created_at": "2019-07-02T02:35:27.516Z",
+                  "updated_at": "2019-07-02T02:35:27.516Z"
+                },
+                {
+                  "id": 5,
+                  "name": "My Dog 5",
+                  "client_id": 12,
+                  "created_at": "2019-07-02T02:35:27.518Z",
+                  "updated_at": "2019-07-02T02:35:27.518Z"
+                },
+                {
+                  "id": 6,
+                  "name": "My Dog 6",
+                  "client_id": 12,
+                  "created_at": "2019-07-02T02:35:27.520Z",
+                  "updated_at": "2019-07-02T02:35:27.520Z"
+                }
+              ]
+            },
+            "description": "Return all the available dogs"
+          }
+        },
+        "tags": [
+          "dogs"
+        ],
+        "summary": "Get dogs",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ]
+      },
+      "post": {
+        "responses": {
+          "201": {
+            "examples": {
+              "application/json": {
+                "id": 7,
+                "name": "Rufus",
+                "client_id": 13,
+                "created_at": "2019-07-02T02:35:27.536Z",
+                "updated_at": "2019-07-02T02:35:27.536Z"
+              }
+            },
+            "description": "Client created"
+          }
+        },
+        "parameters": [
+          {
+            "name": "dog",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/dog"
+            }
+          }
+        ],
+        "tags": [
+          "dogs"
+        ],
+        "summary": "Create a new dog",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ]
+      }
+    },
+    "/api/v1/clients/{client_id}/dogs/{id}": {
+      "parameters": [
+        {
+          "name": "client_id",
+          "in": "path",
+          "type": "integer",
+          "required": true,
+          "description": "client ID"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "examples": {
+              "application/json": {
+                "id": 8,
+                "name": "My Dog 7",
+                "client_id": 14,
+                "created_at": "2019-07-02T02:35:27.547Z",
+                "updated_at": "2019-07-02T02:35:27.547Z"
+              }
+            },
+            "description": "Return the selected Dog"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "integer",
+            "required": true,
+            "description": "dog ID"
+          }
+        ],
+        "tags": [
+          "dogs"
+        ],
+        "summary": "Get Dog",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ]
+      },
+      "put": {
+        "responses": {
+          "200": {
+            "examples": {
+              "application/json": {
+                "client_id": 15,
+                "id": 9,
+                "name": "New Name",
+                "created_at": "2019-07-02T02:35:27.565Z",
+                "updated_at": "2019-07-02T02:35:27.571Z"
+              }
+            },
+            "description": "Client updated"
+          },
+          "404": {
+            "examples": {
+              "text/plain": " "
+            },
+            "description": "Client not found"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "integer",
+            "required": true,
+            "description": "dog ID"
+          },
+          {
+            "name": "dog",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/dog"
+            }
+          }
+        ],
+        "tags": [
+          "dogs"
+        ],
+        "summary": "Update Dog",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ]
+      },
+      "delete": {
+        "responses": {
+          "204": {
+            "examples": {
+              "": ""
+            },
+            "description": "Dog deleted"
+          },
+          "404": {
+            "examples": {
+              "text/plain": " "
+            },
+            "description": "Dog not found"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "integer",
+            "required": true,
+            "description": "dog ID"
+          }
+        ],
+        "tags": [
+          "dogs"
+        ],
+        "summary": "Delete Dog",
         "consumes": [
           "application/json"
         ],
