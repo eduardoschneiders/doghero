@@ -1,4 +1,5 @@
 class Api::V1::WalkingsController < ApplicationController
+  wrap_parameters :walking, include:  Walking.attribute_names.push("dog_ids")
   before_action :set_walking, only: [:show, :update, :destroy]
 
   # GET /walkings
@@ -10,7 +11,7 @@ class Api::V1::WalkingsController < ApplicationController
 
   # GET /walkings/1
   def show
-    render json: @walking
+    render json: @walking.as_json(methods: [:dogs])
   end
 
   # POST /walkings
@@ -41,11 +42,14 @@ class Api::V1::WalkingsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_walking
-      @walking = Walking.find(params[:id])
+      begin
+        @walking = Walking.find(params[:id])
+      rescue ActiveRecord::RecordNotFound
+        render :nothing, status: :not_found
+      end
     end
 
-    # Only allow a trusted parameter "white list" through.
     def walking_params
-      params.require(:walking).permit(:status, :lat, :lon, :caregiver_id)
+      params.require(:walking).permit(:status, :lat, :lon, :caregiver_id, :dog_ids => [])
     end
 end

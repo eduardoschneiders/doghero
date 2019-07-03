@@ -8,5 +8,6 @@
 #rerun --background 'bundle exec rackup --host 0.0.0.0 -p 3000'
 
 bundle exec rake db:setup
+bundle exec rake db:seed
 bundle install
 bundle exec rerun --background 'rails server -b 0.0.0.0 -p 3000'

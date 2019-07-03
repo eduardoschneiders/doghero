@@ -31,6 +31,30 @@
           "example": "Matheus"
         }
       }
+    },
+    "walking": {
+      "type": "object",
+      "properties": {
+        "lat": {
+          "type": "integer",
+          "example": "1"
+        },
+        "lon": {
+          "type": "integer",
+          "example": "2"
+        },
+        "caregiver_id": {
+          "type": "integer",
+          "example": "2"
+        },
+        "dog_ids": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "example": "1"
+          }
+        }
+      }
     }
   },
   "paths": {
@@ -43,20 +67,20 @@
                 {
                   "id": 4,
                   "name": "Caregiver name 4",
-                  "created_at": "2019-07-02T05:17:02.031Z",
-                  "updated_at": "2019-07-02T05:17:02.031Z"
+                  "created_at": "2019-07-03T20:26:21.447Z",
+                  "updated_at": "2019-07-03T20:26:21.447Z"
                 },
                 {
                   "id": 5,
                   "name": "Caregiver name 5",
-                  "created_at": "2019-07-02T05:17:02.032Z",
-                  "updated_at": "2019-07-02T05:17:02.032Z"
+                  "created_at": "2019-07-03T20:26:21.449Z",
+                  "updated_at": "2019-07-03T20:26:21.449Z"
                 },
                 {
                   "id": 6,
                   "name": "Caregiver name 6",
-                  "created_at": "2019-07-02T05:17:02.034Z",
-                  "updated_at": "2019-07-02T05:17:02.034Z"
+                  "created_at": "2019-07-03T20:26:21.451Z",
+                  "updated_at": "2019-07-03T20:26:21.451Z"
                 }
               ]
             },
@@ -81,8 +105,8 @@
               "application/json": {
                 "id": 7,
                 "name": "Eduardo",
-                "created_at": "2019-07-02T05:17:02.044Z",
-                "updated_at": "2019-07-02T05:17:02.044Z"
+                "created_at": "2019-07-03T20:26:21.461Z",
+                "updated_at": "2019-07-03T20:26:21.461Z"
               }
             },
             "description": "Caregiver created"
@@ -118,8 +142,8 @@
               "application/json": {
                 "id": 8,
                 "name": "Caregiver name 7",
-                "created_at": "2019-07-02T05:17:02.051Z",
-                "updated_at": "2019-07-02T05:17:02.051Z"
+                "created_at": "2019-07-03T20:26:21.467Z",
+                "updated_at": "2019-07-03T20:26:21.467Z"
               }
             },
             "description": "Return the selected Caregiver"
@@ -158,8 +182,8 @@
               "application/json": {
                 "id": 9,
                 "name": "New Name",
-                "created_at": "2019-07-02T05:17:02.074Z",
-                "updated_at": "2019-07-02T05:17:02.081Z"
+                "created_at": "2019-07-03T20:26:21.492Z",
+                "updated_at": "2019-07-03T20:26:21.496Z"
               }
             },
             "description": "Caregiver updated"
@@ -244,20 +268,20 @@
                 {
                   "id": 4,
                   "name": "John Doe 4",
-                  "created_at": "2019-07-02T05:17:02.138Z",
-                  "updated_at": "2019-07-02T05:17:02.138Z"
+                  "created_at": "2019-07-03T20:26:21.550Z",
+                  "updated_at": "2019-07-03T20:26:21.550Z"
                 },
                 {
                   "id": 5,
                   "name": "John Doe 5",
-                  "created_at": "2019-07-02T05:17:02.141Z",
-                  "updated_at": "2019-07-02T05:17:02.141Z"
+                  "created_at": "2019-07-03T20:26:21.552Z",
+                  "updated_at": "2019-07-03T20:26:21.552Z"
                 },
                 {
                   "id": 6,
                   "name": "John Doe 6",
-                  "created_at": "2019-07-02T05:17:02.143Z",
-                  "updated_at": "2019-07-02T05:17:02.143Z"
+                  "created_at": "2019-07-03T20:26:21.554Z",
+                  "updated_at": "2019-07-03T20:26:21.554Z"
                 }
               ]
             },
@@ -282,8 +306,8 @@
               "application/json": {
                 "id": 7,
                 "name": "Eduardo",
-                "created_at": "2019-07-02T05:17:02.156Z",
-                "updated_at": "2019-07-02T05:17:02.156Z"
+                "created_at": "2019-07-03T20:26:21.567Z",
+                "updated_at": "2019-07-03T20:26:21.567Z"
               }
             },
             "description": "Client created"
@@ -319,8 +343,8 @@
               "application/json": {
                 "id": 8,
                 "name": "John Doe 7",
-                "created_at": "2019-07-02T05:17:02.166Z",
-                "updated_at": "2019-07-02T05:17:02.166Z"
+                "created_at": "2019-07-03T20:26:21.576Z",
+                "updated_at": "2019-07-03T20:26:21.576Z"
               }
             },
             "description": "Return the selected Client"
@@ -359,8 +383,8 @@
               "application/json": {
                 "id": 9,
                 "name": "New Name",
-                "created_at": "2019-07-02T05:17:02.192Z",
-                "updated_at": "2019-07-02T05:17:02.198Z"
+                "created_at": "2019-07-03T20:26:21.594Z",
+                "updated_at": "2019-07-03T20:26:21.598Z"
               }
             },
             "description": "Client updated"
@@ -455,22 +479,22 @@
                   "id": 4,
                   "name": "My Dog 4",
                   "client_id": 12,
-                  "created_at": "2019-07-02T05:17:02.301Z",
-                  "updated_at": "2019-07-02T05:17:02.301Z"
+                  "created_at": "2019-07-03T20:26:21.688Z",
+                  "updated_at": "2019-07-03T20:26:21.688Z"
                 },
                 {
                   "id": 5,
                   "name": "My Dog 5",
                   "client_id": 12,
-                  "created_at": "2019-07-02T05:17:02.303Z",
-                  "updated_at": "2019-07-02T05:17:02.303Z"
+                  "created_at": "2019-07-03T20:26:21.690Z",
+                  "updated_at": "2019-07-03T20:26:21.690Z"
                 },
                 {
                   "id": 6,
                   "name": "My Dog 6",
                   "client_id": 12,
-                  "created_at": "2019-07-02T05:17:02.306Z",
-                  "updated_at": "2019-07-02T05:17:02.306Z"
+                  "created_at": "2019-07-03T20:26:21.692Z",
+                  "updated_at": "2019-07-03T20:26:21.692Z"
                 }
               ]
             },
@@ -496,8 +520,8 @@
                 "id": 7,
                 "name": "Rufus",
                 "client_id": 13,
-                "created_at": "2019-07-02T05:17:02.323Z",
-                "updated_at": "2019-07-02T05:17:02.323Z"
+                "created_at": "2019-07-03T20:26:21.708Z",
+                "updated_at": "2019-07-03T20:26:21.708Z"
               }
             },
             "description": "Client created"
@@ -543,8 +567,8 @@
                 "id": 8,
                 "name": "My Dog 7",
                 "client_id": 14,
-                "created_at": "2019-07-02T05:17:02.335Z",
-                "updated_at": "2019-07-02T05:17:02.335Z"
+                "created_at": "2019-07-03T20:26:21.718Z",
+                "updated_at": "2019-07-03T20:26:21.718Z"
               }
             },
             "description": "Return the selected Dog"
@@ -578,8 +602,8 @@
                 "client_id": 15,
                 "id": 9,
                 "name": "New Name",
-                "created_at": "2019-07-02T05:17:02.352Z",
-                "updated_at": "2019-07-02T05:17:02.358Z"
+                "created_at": "2019-07-03T20:26:21.734Z",
+                "updated_at": "2019-07-03T20:26:21.744Z"
               }
             },
             "description": "Client updated"
@@ -654,6 +678,235 @@
           "dogs"
         ],
         "summary": "Delete Dog",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ]
+      }
+    },
+    "/api/v1/walkings": {
+      "get": {
+        "responses": {
+          "200": {
+            "examples": {
+              "application/json": [
+                {
+                  "id": 4,
+                  "status": "MyString",
+                  "lat": 1,
+                  "lon": 1,
+                  "caregiver_id": 14,
+                  "created_at": "2019-07-03T20:26:21.879Z",
+                  "updated_at": "2019-07-03T20:26:21.879Z"
+                },
+                {
+                  "id": 5,
+                  "status": "MyString",
+                  "lat": 1,
+                  "lon": 1,
+                  "caregiver_id": 15,
+                  "created_at": "2019-07-03T20:26:21.891Z",
+                  "updated_at": "2019-07-03T20:26:21.891Z"
+                },
+                {
+                  "id": 6,
+                  "status": "MyString",
+                  "lat": 1,
+                  "lon": 1,
+                  "caregiver_id": 16,
+                  "created_at": "2019-07-03T20:26:21.902Z",
+                  "updated_at": "2019-07-03T20:26:21.902Z"
+                }
+              ]
+            },
+            "description": "Return all the available walkings"
+          }
+        },
+        "tags": [
+          "walkings"
+        ],
+        "summary": "Get walkings",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ]
+      },
+      "post": {
+        "responses": {
+          "201": {
+            "examples": {
+              "application/json": {
+                "id": 7,
+                "status": "asdf",
+                "lat": 1,
+                "lon": 2,
+                "caregiver_id": 17,
+                "created_at": "2019-07-03T20:26:21.929Z",
+                "updated_at": "2019-07-03T20:26:21.929Z"
+              }
+            },
+            "description": "Walking created"
+          }
+        },
+        "parameters": [
+          {
+            "name": "walking",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/walking"
+            }
+          }
+        ],
+        "tags": [
+          "walkings"
+        ],
+        "summary": "Create a new walking",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ]
+      }
+    },
+    "/api/v1/walkings/{id}": {
+      "get": {
+        "responses": {
+          "200": {
+            "examples": {
+              "application/json": {
+                "id": 8,
+                "status": "MyString",
+                "lat": 1,
+                "lon": 1,
+                "caregiver_id": 18,
+                "created_at": "2019-07-03T20:26:21.947Z",
+                "updated_at": "2019-07-03T20:26:21.947Z",
+                "dogs": [
+                  {
+                    "id": 25,
+                    "name": "My Dog 24",
+                    "client_id": 26,
+                    "created_at": "2019-07-03T20:26:21.943Z",
+                    "updated_at": "2019-07-03T20:26:21.943Z"
+                  },
+                  {
+                    "id": 26,
+                    "name": "My Dog 25",
+                    "client_id": 26,
+                    "created_at": "2019-07-03T20:26:21.944Z",
+                    "updated_at": "2019-07-03T20:26:21.944Z"
+                  }
+                ]
+              }
+            },
+            "description": "Return the selected Walking"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "integer",
+            "required": true,
+            "description": "walking ID"
+          }
+        ],
+        "tags": [
+          "walkings"
+        ],
+        "summary": "Get Walking",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ]
+      },
+      "put": {
+        "responses": {
+          "200": {
+            "examples": {
+              "application/json": {
+                "id": 9,
+                "caregiver_id": 19,
+                "lat": 1,
+                "lon": 1,
+                "status": "MyString",
+                "created_at": "2019-07-03T20:26:21.982Z",
+                "updated_at": "2019-07-03T20:26:21.982Z"
+              }
+            },
+            "description": "Walking updated"
+          },
+          "404": {
+            "examples": {
+              "text/plain": " "
+            },
+            "description": "Walking not found"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "integer",
+            "required": true,
+            "description": "walking ID"
+          },
+          {
+            "name": "walking",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/walking"
+            }
+          }
+        ],
+        "tags": [
+          "walkings"
+        ],
+        "summary": "Update Walking",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ]
+      },
+      "delete": {
+        "responses": {
+          "204": {
+            "examples": {
+              "": ""
+            },
+            "description": "Walking deleted"
+          },
+          "404": {
+            "examples": {
+              "text/plain": " "
+            },
+            "description": "Walking not found"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "integer",
+            "required": true,
+            "description": "Walking ID"
+          }
+        ],
+        "tags": [
+          "walkings"
+        ],
+        "summary": "Delete Walking",
         "consumes": [
           "application/json"
         ],

@@ -37,6 +37,18 @@ RSpec.configure do |config|
           properties: {
             name: { type: :string, example: 'Matheus' },
           }
+        },
+        walking: {
+          type: :object,
+          properties: {
+            lat: { type: :integer, example: '1' },
+            lon: { type: :integer, example: '2' },
+            caregiver_id: { type: :integer, example: '2' },
+            dog_ids: { 
+              type: :array,
+              items: { type: :integer, example: '1' }
+            }
+          }
         }
       },
       paths: {}
