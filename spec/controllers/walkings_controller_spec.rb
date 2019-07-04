@@ -72,16 +72,38 @@ RSpec.describe Api::V1::WalkingsController, type: :controller do
     end
 
     it "returns all walkings" do
-      5.times do
+      2.times do
         create(:walking, :upcomming)
       end
 
-      5.times do
+      2.times do
         create(:walking, :outdated)
       end
 
       get :index, params: {}, session: valid_session
-      expect(JSON.parse(response.body).size).to eql(10)
+      expect(JSON.parse(response.body).size).to eql(4)
+    end
+
+    it "returns paginated walkings" do
+      (1..100).each do |i|
+        create(:walking, id: i)
+      end
+
+      get :index, params: {}, session: valid_session
+      parsed_response = JSON.parse(response.body)
+      expect(parsed_response.size).to eql(5)
+      expect(parsed_response.map { |e| e['id']}).to eql([1, 2, 3, 4, 5])
+    end
+
+     it "returns the third page" do
+      (1..100).each do |i|
+        create(:walking, id: i)
+      end
+
+      get :index, params: { page: 3}, session: valid_session
+      parsed_response = JSON.parse(response.body)
+      expect(parsed_response.size).to eql(5)
+      expect(parsed_response.map { |e| e['id']}).to eql([11, 12, 13, 14, 15])
     end
   end
 

@@ -10,7 +10,10 @@ class Api::V1::WalkingsController < ApplicationController
       @walkings = Walking.all
     end
 
-    render json: @walkings
+    page = (params[:page] || 1).to_i - 1
+    offset = 5
+
+    render json: @walkings.limit(5).offset(page * offset)
   end
 
   # GET /walkings/1
