@@ -43,6 +43,8 @@ RSpec.configure do |config|
           properties: {
             lat: { type: :integer, example: '1' },
             lon: { type: :integer, example: '2' },
+            duration: { type: :integer, example: 30 },
+            schedule_time: { type: :datetime, example: Time.now },
             caregiver_id: { type: :integer, example: '2' },
             dog_ids: { 
               type: :array,

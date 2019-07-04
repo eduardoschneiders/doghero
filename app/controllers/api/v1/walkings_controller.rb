@@ -11,7 +11,7 @@ class Api::V1::WalkingsController < ApplicationController
 
   # GET /walkings/1
   def show
-    render json: @walking.as_json(methods: [:dogs])
+    render json: @walking.as_json(methods: [:dogs, :end_time])
   end
 
   # POST /walkings
@@ -60,6 +60,14 @@ class Api::V1::WalkingsController < ApplicationController
     end
 
     def walking_params
-      params.require(:walking).permit(:status, :lat, :lon, :caregiver_id, :duration, :dog_ids => [])
+      params.require(:walking).permit(
+        :status,
+        :lat,
+        :lon,
+        :caregiver_id,
+        :duration,
+        :schedule_time,
+        :dog_ids => []
+      )
     end
 end

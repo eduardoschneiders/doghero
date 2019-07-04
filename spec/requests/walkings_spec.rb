@@ -47,6 +47,7 @@ RSpec.describe 'Walkings', type: :request, capture_examples: true do
               lon: '2',
               status: "started",
               duration: 30,
+              schedule_time: Time.now,
               caregiver_id: caregiver.id,
               dog_ids: dogs.map(&:id)
             }

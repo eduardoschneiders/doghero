@@ -43,6 +43,14 @@
           "type": "integer",
           "example": "2"
         },
+        "duration": {
+          "type": "integer",
+          "example": 30
+        },
+        "schedule_time": {
+          "type": "datetime",
+          "example": "2019-07-04 16:07:50 +0000"
+        },
         "caregiver_id": {
           "type": "integer",
           "example": "2"
@@ -67,20 +75,20 @@
                 {
                   "id": 4,
                   "name": "Caregiver name 4",
-                  "created_at": "2019-07-04T03:25:54.058Z",
-                  "updated_at": "2019-07-04T03:25:54.058Z"
+                  "created_at": "2019-07-04T16:07:50.610Z",
+                  "updated_at": "2019-07-04T16:07:50.610Z"
                 },
                 {
                   "id": 5,
                   "name": "Caregiver name 5",
-                  "created_at": "2019-07-04T03:25:54.061Z",
-                  "updated_at": "2019-07-04T03:25:54.061Z"
+                  "created_at": "2019-07-04T16:07:50.612Z",
+                  "updated_at": "2019-07-04T16:07:50.612Z"
                 },
                 {
                   "id": 6,
                   "name": "Caregiver name 6",
-                  "created_at": "2019-07-04T03:25:54.063Z",
-                  "updated_at": "2019-07-04T03:25:54.063Z"
+                  "created_at": "2019-07-04T16:07:50.614Z",
+                  "updated_at": "2019-07-04T16:07:50.614Z"
                 }
               ]
             },
@@ -105,8 +113,8 @@
               "application/json": {
                 "id": 7,
                 "name": "Eduardo",
-                "created_at": "2019-07-04T03:25:54.072Z",
-                "updated_at": "2019-07-04T03:25:54.072Z"
+                "created_at": "2019-07-04T16:07:50.624Z",
+                "updated_at": "2019-07-04T16:07:50.624Z"
               }
             },
             "description": "Caregiver created"
@@ -142,8 +150,8 @@
               "application/json": {
                 "id": 8,
                 "name": "Caregiver name 7",
-                "created_at": "2019-07-04T03:25:54.080Z",
-                "updated_at": "2019-07-04T03:25:54.080Z"
+                "created_at": "2019-07-04T16:07:50.631Z",
+                "updated_at": "2019-07-04T16:07:50.631Z"
               }
             },
             "description": "Return the selected Caregiver"
@@ -182,8 +190,8 @@
               "application/json": {
                 "id": 9,
                 "name": "New Name",
-                "created_at": "2019-07-04T03:25:54.102Z",
-                "updated_at": "2019-07-04T03:25:54.109Z"
+                "created_at": "2019-07-04T16:07:50.656Z",
+                "updated_at": "2019-07-04T16:07:50.660Z"
               }
             },
             "description": "Caregiver updated"
@@ -268,20 +276,20 @@
                 {
                   "id": 4,
                   "name": "John Doe 4",
-                  "created_at": "2019-07-04T03:25:54.172Z",
-                  "updated_at": "2019-07-04T03:25:54.172Z"
+                  "created_at": "2019-07-04T16:07:50.725Z",
+                  "updated_at": "2019-07-04T16:07:50.725Z"
                 },
                 {
                   "id": 5,
                   "name": "John Doe 5",
-                  "created_at": "2019-07-04T03:25:54.176Z",
-                  "updated_at": "2019-07-04T03:25:54.176Z"
+                  "created_at": "2019-07-04T16:07:50.727Z",
+                  "updated_at": "2019-07-04T16:07:50.727Z"
                 },
                 {
                   "id": 6,
                   "name": "John Doe 6",
-                  "created_at": "2019-07-04T03:25:54.178Z",
-                  "updated_at": "2019-07-04T03:25:54.178Z"
+                  "created_at": "2019-07-04T16:07:50.729Z",
+                  "updated_at": "2019-07-04T16:07:50.729Z"
                 }
               ]
             },
@@ -306,8 +314,8 @@
               "application/json": {
                 "id": 7,
                 "name": "Eduardo",
-                "created_at": "2019-07-04T03:25:54.189Z",
-                "updated_at": "2019-07-04T03:25:54.189Z"
+                "created_at": "2019-07-04T16:07:50.742Z",
+                "updated_at": "2019-07-04T16:07:50.742Z"
               }
             },
             "description": "Client created"
@@ -343,8 +351,8 @@
               "application/json": {
                 "id": 8,
                 "name": "John Doe 7",
-                "created_at": "2019-07-04T03:25:54.200Z",
-                "updated_at": "2019-07-04T03:25:54.200Z"
+                "created_at": "2019-07-04T16:07:50.750Z",
+                "updated_at": "2019-07-04T16:07:50.750Z"
               }
             },
             "description": "Return the selected Client"
@@ -383,8 +391,8 @@
               "application/json": {
                 "id": 9,
                 "name": "New Name",
-                "created_at": "2019-07-04T03:25:54.218Z",
-                "updated_at": "2019-07-04T03:25:54.222Z"
+                "created_at": "2019-07-04T16:07:50.772Z",
+                "updated_at": "2019-07-04T16:07:50.777Z"
               }
             },
             "description": "Client updated"
@@ -479,22 +487,22 @@
                   "id": 4,
                   "name": "My Dog 4",
                   "client_id": 12,
-                  "created_at": "2019-07-04T03:25:54.318Z",
-                  "updated_at": "2019-07-04T03:25:54.318Z"
+                  "created_at": "2019-07-04T16:07:50.877Z",
+                  "updated_at": "2019-07-04T16:07:50.877Z"
                 },
                 {
                   "id": 5,
                   "name": "My Dog 5",
                   "client_id": 12,
-                  "created_at": "2019-07-04T03:25:54.321Z",
-                  "updated_at": "2019-07-04T03:25:54.321Z"
+                  "created_at": "2019-07-04T16:07:50.879Z",
+                  "updated_at": "2019-07-04T16:07:50.879Z"
                 },
                 {
                   "id": 6,
                   "name": "My Dog 6",
                   "client_id": 12,
-                  "created_at": "2019-07-04T03:25:54.323Z",
-                  "updated_at": "2019-07-04T03:25:54.323Z"
+                  "created_at": "2019-07-04T16:07:50.881Z",
+                  "updated_at": "2019-07-04T16:07:50.881Z"
                 }
               ]
             },
@@ -520,8 +528,8 @@
                 "id": 7,
                 "name": "Rufus",
                 "client_id": 13,
-                "created_at": "2019-07-04T03:25:54.343Z",
-                "updated_at": "2019-07-04T03:25:54.343Z"
+                "created_at": "2019-07-04T16:07:50.898Z",
+                "updated_at": "2019-07-04T16:07:50.898Z"
               }
             },
             "description": "Client created"
@@ -567,8 +575,8 @@
                 "id": 8,
                 "name": "My Dog 7",
                 "client_id": 14,
-                "created_at": "2019-07-04T03:25:54.353Z",
-                "updated_at": "2019-07-04T03:25:54.353Z"
+                "created_at": "2019-07-04T16:07:50.910Z",
+                "updated_at": "2019-07-04T16:07:50.910Z"
               }
             },
             "description": "Return the selected Dog"
@@ -602,8 +610,8 @@
                 "client_id": 15,
                 "id": 9,
                 "name": "New Name",
-                "created_at": "2019-07-04T03:25:54.368Z",
-                "updated_at": "2019-07-04T03:25:54.377Z"
+                "created_at": "2019-07-04T16:07:50.925Z",
+                "updated_at": "2019-07-04T16:07:50.932Z"
               }
             },
             "description": "Client updated"
@@ -698,8 +706,11 @@
                   "lat": 1,
                   "lon": 1,
                   "caregiver_id": 14,
-                  "created_at": "2019-07-04T03:25:54.520Z",
-                  "updated_at": "2019-07-04T03:25:54.520Z"
+                  "created_at": "2019-07-04T16:07:51.064Z",
+                  "updated_at": "2019-07-04T16:07:51.064Z",
+                  "schedule_time": "2019-07-04T16:07:00.000Z",
+                  "price": null,
+                  "duration": 30
                 },
                 {
                   "id": 5,
@@ -707,8 +718,11 @@
                   "lat": 1,
                   "lon": 1,
                   "caregiver_id": 15,
-                  "created_at": "2019-07-04T03:25:54.535Z",
-                  "updated_at": "2019-07-04T03:25:54.535Z"
+                  "created_at": "2019-07-04T16:07:51.081Z",
+                  "updated_at": "2019-07-04T16:07:51.081Z",
+                  "schedule_time": "2019-07-04T16:07:00.000Z",
+                  "price": null,
+                  "duration": 30
                 },
                 {
                   "id": 6,
@@ -716,8 +730,11 @@
                   "lat": 1,
                   "lon": 1,
                   "caregiver_id": 16,
-                  "created_at": "2019-07-04T03:25:54.549Z",
-                  "updated_at": "2019-07-04T03:25:54.549Z"
+                  "created_at": "2019-07-04T16:07:51.096Z",
+                  "updated_at": "2019-07-04T16:07:51.096Z",
+                  "schedule_time": "2019-07-04T16:07:00.000Z",
+                  "price": null,
+                  "duration": 30
                 }
               ]
             },
@@ -745,8 +762,11 @@
                 "lat": 1,
                 "lon": 2,
                 "caregiver_id": 17,
-                "created_at": "2019-07-04T03:25:54.584Z",
-                "updated_at": "2019-07-04T03:25:54.584Z"
+                "created_at": "2019-07-04T16:07:51.125Z",
+                "updated_at": "2019-07-04T16:07:51.125Z",
+                "schedule_time": "2019-07-04T16:07:00.000Z",
+                "price": null,
+                "duration": 30
               }
             },
             "description": "Walking created"
@@ -785,24 +805,28 @@
                 "lat": 1,
                 "lon": 1,
                 "caregiver_id": 18,
-                "created_at": "2019-07-04T03:25:54.607Z",
-                "updated_at": "2019-07-04T03:25:54.607Z",
+                "created_at": "2019-07-04T16:07:51.145Z",
+                "updated_at": "2019-07-04T16:07:51.145Z",
+                "schedule_time": "2019-07-04T16:07:00.000Z",
+                "price": null,
+                "duration": 30,
                 "dogs": [
                   {
                     "id": 25,
                     "name": "My Dog 24",
                     "client_id": 26,
-                    "created_at": "2019-07-04T03:25:54.600Z",
-                    "updated_at": "2019-07-04T03:25:54.600Z"
+                    "created_at": "2019-07-04T16:07:51.140Z",
+                    "updated_at": "2019-07-04T16:07:51.140Z"
                   },
                   {
                     "id": 26,
                     "name": "My Dog 25",
                     "client_id": 26,
-                    "created_at": "2019-07-04T03:25:54.602Z",
-                    "updated_at": "2019-07-04T03:25:54.602Z"
+                    "created_at": "2019-07-04T16:07:51.141Z",
+                    "updated_at": "2019-07-04T16:07:51.141Z"
                   }
-                ]
+                ],
+                "end_time": "2019-07-04T16:37:00.000Z"
               }
             },
             "description": "Return the selected Walking"
@@ -837,9 +861,12 @@
                 "caregiver_id": 19,
                 "lat": 1,
                 "lon": 1,
+                "duration": 30,
+                "schedule_time": "2019-07-04T16:07:00.000Z",
                 "status": "scheduled",
-                "created_at": "2019-07-04T03:25:54.643Z",
-                "updated_at": "2019-07-04T03:25:54.643Z"
+                "created_at": "2019-07-04T16:07:51.183Z",
+                "updated_at": "2019-07-04T16:07:51.183Z",
+                "price": null
               }
             },
             "description": "Walking updated"
@@ -926,8 +953,11 @@
                 "caregiver_id": 22,
                 "lat": 1,
                 "lon": 1,
-                "created_at": "2019-07-04T03:25:54.734Z",
-                "updated_at": "2019-07-04T03:25:54.741Z"
+                "duration": 30,
+                "schedule_time": "2019-07-04T16:07:00.000Z",
+                "created_at": "2019-07-04T16:07:51.287Z",
+                "updated_at": "2019-07-04T16:07:51.294Z",
+                "price": null
               }
             },
             "description": "Return the selected Walking"
@@ -971,8 +1001,11 @@
                 "caregiver_id": 24,
                 "lat": 1,
                 "lon": 1,
-                "created_at": "2019-07-04T03:25:54.796Z",
-                "updated_at": "2019-07-04T03:25:54.802Z"
+                "duration": 30,
+                "schedule_time": "2019-07-04T16:07:00.000Z",
+                "created_at": "2019-07-04T16:07:51.344Z",
+                "updated_at": "2019-07-04T16:07:51.351Z",
+                "price": null
               }
             },
             "description": "Return the selected Walking"

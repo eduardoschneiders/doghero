@@ -63,6 +63,22 @@ RSpec.describe Api::V1::WalkingsController, type: :controller do
       get :show, params: {id: walking.to_param}, session: valid_session
       expect(response).to be_successful
     end
+
+    it 'returns the begin and end time' do
+      time = Time.now
+
+      walking = create(:walking, schedule_time: time)
+      walking.short_time!
+ 
+      get :show, params: {id: walking.to_param}, session: valid_session
+
+      parsed_response = JSON.parse(response.body)
+      schedule_time = DateTime.parse(parsed_response['schedule_time']).utc
+      end_time = DateTime.parse(parsed_response['end_time']).utc
+
+      expect(schedule_time).to eql(walking.schedule_time.utc)
+      expect(end_time).to eql(walking.end_time.utc)
+    end
   end
 
   describe "POST #create" do
