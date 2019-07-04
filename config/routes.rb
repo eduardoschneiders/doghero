@@ -1,3 +1,4 @@
+
 Rails.application.routes.draw do
   mount Rswag::Ui::Engine => '/api-docs'
   mount Rswag::Api::Engine => '/api-docs'
@@ -8,7 +9,12 @@ Rails.application.routes.draw do
         resources :dogs
       end
       resources :caregivers
-      resources :walkings
+      resources :walkings do 
+        member do
+          put :start_walk
+          put :finish_walk
+        end
+      end
     end
   end
 end

@@ -1,6 +1,6 @@
 class Api::V1::WalkingsController < ApplicationController
   wrap_parameters :walking, include:  Walking.attribute_names.push("dog_ids")
-  before_action :set_walking, only: [:show, :update, :destroy]
+  before_action :set_walking, only: [:show, :update, :destroy, :start_walk, :finish_walk]
 
   # GET /walkings
   def index
@@ -37,6 +37,16 @@ class Api::V1::WalkingsController < ApplicationController
   # DELETE /walkings/1
   def destroy
     @walking.destroy
+  end
+
+  def start_walk
+    @walking.started!
+    render json: @walking, status: :accepted
+  end
+
+  def finish_walk
+    @walking.finished!
+    render json: @walking, status: :accepted
   end
 
   private

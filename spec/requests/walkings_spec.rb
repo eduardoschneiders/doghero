@@ -45,7 +45,7 @@ RSpec.describe 'Walkings', type: :request, capture_examples: true do
             walking: {
               lat: '1',
               lon: '2',
-              status: "asdf",
+              status: "started",
               caregiver_id: caregiver.id,
               dog_ids: dogs.map(&:id)
             }
@@ -135,4 +135,58 @@ RSpec.describe 'Walkings', type: :request, capture_examples: true do
       end
     end
   end
- end
+
+  path '/api/v1/walkings/{id}/start_walk' do
+    put(summary: 'Start Walk') do
+      consumes 'application/json'
+      produces 'application/json'
+      tags :walkings
+
+      parameter :id, in: :path, type: :integer, required: true, description: 'walking ID'
+
+      let(:walking_1) do
+        create(:walking, caregiver: create(:caregiver), dogs: create(:client, :with_dogs).dogs)
+      end
+
+      response(202, description: 'Return the selected Walking') do
+        let(:id) { walking_1.id }
+				
+				it 'Return walking' do
+          body = JSON(response.body)
+          expect(body['status']).to eq("started")
+        end
+      end
+
+      response(404, description: 'Walking not found') do
+        let(:id) { 999 }
+      end
+    end
+ 	end
+
+ 	path '/api/v1/walkings/{id}/finish_walk' do
+    put(summary: 'Finish Walk') do
+      consumes 'application/json'
+      produces 'application/json'
+      tags :walkings
+
+      parameter :id, in: :path, type: :integer, required: true, description: 'walking ID'
+
+      let(:walking_1) do
+        create(:walking, caregiver: create(:caregiver), dogs: create(:client, :with_dogs).dogs)
+      end
+
+      response(202, description: 'Return the selected Walking') do
+        let(:id) { walking_1.id }
+				
+				it 'Return walking' do
+          body = JSON(response.body)
+          expect(body['status']).to eq("finished")
+        end
+      end
+
+      response(404, description: 'Walking not found') do
+        let(:id) { 999 }
+      end
+    end
+ 	end
+end

@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 2019_07_02_043252) do
   end
 
   create_table "walkings", force: :cascade do |t|
-    t.string "status"
+    t.integer "status", default: 0
     t.integer "lat"
     t.integer "lon"
     t.bigint "caregiver_id"
