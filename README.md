@@ -26,6 +26,12 @@ http://localhost:3000/api-docs/index.html
 docker-compose run app bash
 ```
 
+# Run Rspec:
+
+```
+bundle exec rspec
+```
+
 # Generate swagger docs:
 
 ```
