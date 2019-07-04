@@ -81,6 +81,15 @@ RSpec.describe Api::V1::WalkingsController, type: :controller do
       expect(schedule_time).to eql(walking.schedule_time.utc)
       expect(end_time).to eql(walking.end_time.utc)
     end
+
+    it 'returns the price for walking' do
+      walking = create(:walking, :with_two_dogs, :short_time)
+
+      get :show, params: {id: walking.to_param}, session: valid_session
+
+      parsed_response = JSON.parse(response.body)
+      expect(parsed_response['price']).to eql(40)
+    end
   end
 
   describe "POST #create" do

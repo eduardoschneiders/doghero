@@ -9,5 +9,17 @@ FactoryBot.define do
     trait :with_dogs do
       dogs { create(:client, :with_dogs).dogs }
     end
+
+    trait :with_two_dogs do
+      dogs { create(:client, :with_dogs).dogs }
+    end
+
+    trait :short_time do
+      duration { 30 }
+    end
+
+    trait :long_time do
+      duration { 60 }
+    end
   end
 end
