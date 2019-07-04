@@ -33,10 +33,12 @@ RSpec.describe Api::V1::WalkingsController, type: :controller do
   let(:dogs) { 2.times.map { create(:dog, client: client) }}
   let(:valid_attributes) do
     attrs = build(:walking).attributes
-    attrs.merge(dog_ids: dogs.map(&:to_param))
+    attrs.merge!(dog_ids: dogs.map(&:to_param))
+
     attrs.delete("id")
     attrs.delete("created_at")
     attrs.delete("updated_at")
+
     attrs
   end
 
@@ -67,9 +69,9 @@ RSpec.describe Api::V1::WalkingsController, type: :controller do
     it 'returns the begin and end time' do
       time = Time.now
 
-      walking = create(:walking, schedule_time: time)
+      walking = create(:walking, :with_dogs, schedule_time: time)
       walking.short_time!
- 
+
       get :show, params: {id: walking.to_param}, session: valid_session
 
       parsed_response = JSON.parse(response.body)
