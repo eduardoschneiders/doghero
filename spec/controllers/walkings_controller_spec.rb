@@ -53,9 +53,35 @@ RSpec.describe Api::V1::WalkingsController, type: :controller do
 
   describe "GET #index" do
     it "returns a success response" do
-      walking = Walking.create! valid_attributes
+      Walking.create! valid_attributes
       get :index, params: {}, session: valid_session
       expect(response).to be_successful
+    end
+
+    it "returns upcoming walkings" do
+      5.times do
+        create(:walking, :upcomming)
+      end
+
+      5.times do
+        create(:walking, :outdated)
+      end
+
+      get :index, params: { upcoming: true  }, session: valid_session
+      expect(JSON.parse(response.body).size).to eql(5)
+    end
+
+    it "returns all walkings" do
+      5.times do
+        create(:walking, :upcomming)
+      end
+
+      5.times do
+        create(:walking, :outdated)
+      end
+
+      get :index, params: {}, session: valid_session
+      expect(JSON.parse(response.body).size).to eql(10)
     end
   end
 

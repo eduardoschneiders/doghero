@@ -3,6 +3,7 @@ FactoryBot.define do
     lat { 1 }
     lon { 1 }
     duration { 30 }
+    dogs { create(:client, :with_dogs).dogs }
     schedule_time { Time.now }
     caregiver { create(:caregiver) }
     
@@ -20,6 +21,14 @@ FactoryBot.define do
 
     trait :long_time do
       duration { 60 }
+    end
+
+    trait :upcomming do
+      schedule_time { 2.months.ago}  
+    end 
+    
+    trait :outdated do
+      schedule_time { 2.months.from_now}  
     end
   end
 end

@@ -4,7 +4,11 @@ class Api::V1::WalkingsController < ApplicationController
 
   # GET /walkings
   def index
-    @walkings = Walking.all
+    if params[:upcoming]
+      @walkings = Walking.upcoming
+    else
+      @walkings = Walking.all
+    end
 
     render json: @walkings
   end

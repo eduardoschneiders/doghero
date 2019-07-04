@@ -7,6 +7,7 @@ class Walking < ApplicationRecord
   enum duration: { short_time: 30, long_time: 60 }
 
   validates :lat, :lon, :duration, :schedule_time, :dogs, presence: true
+  scope :upcoming, -> { where("schedule_time >= ?", Time.now)}
 
   def duration
     self.duration_before_type_cast
