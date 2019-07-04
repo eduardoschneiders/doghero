@@ -14,7 +14,7 @@ docker-compose up
 http://localhost:3000
 ```
 
-# Acess API docs on:
+# Access API docs on:
 
 ```
 http://localhost:3000/api-docs/index.html
