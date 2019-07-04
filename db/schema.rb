@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_02_043252) do
+ActiveRecord::Schema.define(version: 2019_07_04_033243) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,9 @@ ActiveRecord::Schema.define(version: 2019_07_02_043252) do
     t.bigint "caregiver_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "schedule_time"
+    t.integer "price"
+    t.integer "duration"
     t.index ["caregiver_id"], name: "index_walkings_on_caregiver_id"
   end
 

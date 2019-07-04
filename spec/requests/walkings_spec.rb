@@ -2,11 +2,11 @@ require 'swagger_helper'
 
 RSpec.describe 'Walkings', type: :request, capture_examples: true do
   path '/api/v1/walkings' do
-  	let(:caregiver) { create(:caregiver) }
-  	let(:client) { create(:client) }
-  	let(:dogs) { 2.times.map { create(:dog, client: client) }}
+    let(:caregiver) { create(:caregiver) }
+    let(:client) { create(:client) }
+    let(:dogs) { 2.times.map { create(:dog, client: client) }}
 
-		get(summary: 'Get walkings') do
+    get(summary: 'Get walkings') do
       consumes 'application/json'
       produces 'application/json'
       tags :walkings
@@ -14,7 +14,7 @@ RSpec.describe 'Walkings', type: :request, capture_examples: true do
       let!(:walkings) do
 
         3.times do
-      		client = create(:client, :with_dogs)
+          client = create(:client, :with_dogs)
           create(:walking, caregiver: create(:caregiver), dogs: client.dogs)
         end
       end
@@ -46,6 +46,7 @@ RSpec.describe 'Walkings', type: :request, capture_examples: true do
               lat: '1',
               lon: '2',
               status: "started",
+              duration: 30,
               caregiver_id: caregiver.id,
               dog_ids: dogs.map(&:id)
             }
@@ -123,7 +124,7 @@ RSpec.describe 'Walkings', type: :request, capture_examples: true do
       parameter :id, in: :path, type: :integer, required: true, description: 'Walking ID'
 
       let(:walking_1) do
-      	create(:walking, caregiver: create(:caregiver), dogs: create(:client, :with_dogs).dogs)
+        create(:walking, caregiver: create(:caregiver), dogs: create(:client, :with_dogs).dogs)
       end
 
       response(204, description: 'Walking deleted') do
@@ -150,8 +151,8 @@ RSpec.describe 'Walkings', type: :request, capture_examples: true do
 
       response(202, description: 'Return the selected Walking') do
         let(:id) { walking_1.id }
-				
-				it 'Return walking' do
+        
+        it 'Return walking' do
           body = JSON(response.body)
           expect(body['status']).to eq("started")
         end
@@ -161,9 +162,9 @@ RSpec.describe 'Walkings', type: :request, capture_examples: true do
         let(:id) { 999 }
       end
     end
- 	end
+  end
 
- 	path '/api/v1/walkings/{id}/finish_walk' do
+  path '/api/v1/walkings/{id}/finish_walk' do
     put(summary: 'Finish Walk') do
       consumes 'application/json'
       produces 'application/json'
@@ -177,8 +178,8 @@ RSpec.describe 'Walkings', type: :request, capture_examples: true do
 
       response(202, description: 'Return the selected Walking') do
         let(:id) { walking_1.id }
-				
-				it 'Return walking' do
+        
+        it 'Return walking' do
           body = JSON(response.body)
           expect(body['status']).to eq("finished")
         end
@@ -188,5 +189,5 @@ RSpec.describe 'Walkings', type: :request, capture_examples: true do
         let(:id) { 999 }
       end
     end
- 	end
+  end
 end

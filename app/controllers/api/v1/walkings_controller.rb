@@ -60,6 +60,6 @@ class Api::V1::WalkingsController < ApplicationController
     end
 
     def walking_params
-      params.require(:walking).permit(:status, :lat, :lon, :caregiver_id, :dog_ids => [])
+      params.require(:walking).permit(:status, :lat, :lon, :caregiver_id, :duration, :dog_ids => [])
     end
 end

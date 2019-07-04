@@ -32,9 +32,7 @@ RSpec.describe Api::V1::WalkingsController, type: :controller do
   let(:client) { create(:client) }
   let(:dogs) { 2.times.map { create(:dog, client: client) }}
   let(:valid_attributes) do
-    attrs = build(:walking, 
-      caregiver: create(:caregiver),
-    ).attributes
+    attrs = build(:walking).attributes
     attrs.merge(dog_ids: dogs.map(&:to_param))
     attrs.delete("id")
     attrs.delete("created_at")
